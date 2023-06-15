@@ -1,0 +1,9 @@
+include 'backend'
+include 'frontend'
+
+rootProject.name = 'ENBManager'
+rootProject.children.each { project ->
+    {
+        project.projectDir = file("modules/$project.name")
+    }
+}

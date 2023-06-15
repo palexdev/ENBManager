@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.github.palexdev'
+version = "$app"
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // Inverno Framework :D
+        annotationProcessor "io.inverno:inverno-core-compiler:$inverno"
+        implementation "io.inverno:inverno-core:$inverno"
+
+        // Logging
+        implementation "org.slf4j:slf4j-api:$slf4j"
+        implementation "ch.qos.logback:logback-classic:$logback"
+
+        testImplementation platform("org.junit:junit-bom:$junit")
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+    }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    // Since we are using a compile time DI framework, everytime the code changes
+    compileJava {
+        doFirst {
+            if (!classes.state.upToDate)
+                clean
+        }
+    }
+}

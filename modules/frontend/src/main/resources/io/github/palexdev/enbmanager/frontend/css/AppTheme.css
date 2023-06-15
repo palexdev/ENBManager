@@ -1,0 +1,706 @@
+/******************** Extra Palette ********************/
+.root {
+    -red: #F44336;
+    -orange: #FF9800;
+    -yellow: #FBC02D;
+    -blue: #2196F3;
+    -green: #4CAF50;
+    -purple: #9C27B0;
+}
+
+/* Commons */
+.choose-icon .mfx-font-icon {
+    -mfx-description: "fas-folder-open";
+}
+
+/******************** Window Controls ********************/
+.window-header {
+    -fx-alignment: CENTER_RIGHT;
+    -fx-padding: 12px 0px 12px 0px;
+    -fx-spacing: 12px;
+}
+
+.window-header .mfx-icon-wrapper {
+    -fx-opacity: 0.6;
+    -mfx-size: 20px;
+    -mfx-round: true;
+}
+
+.window-header .mfx-icon-wrapper:hover {
+    -fx-opacity: 1.0;
+}
+
+.window-header .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-size: 14px;
+    -mfx-color: white;
+}
+
+.window-header .aot {
+    -fx-background-color: -purple;
+}
+
+.window-header .aot .mfx-font-icon {
+    -mfx-description: "fas-chevron-up";
+}
+
+.window-header .aot:enabled {
+    -fx-opacity: 1.0;
+}
+
+.window-header .minimize {
+    -fx-background-color: -orange;
+}
+
+.window-header .minimize .mfx-font-icon {
+    -mfx-description: "fas-minus";
+}
+
+.window-header .maximize {
+    -fx-background-color: -green;
+}
+
+.window-header .maximize .mfx-font-icon {
+    -mfx-description: "fas-up-right-and-down-left-from-center";
+    -mfx-size: 12px;
+}
+
+.window-header .close {
+    -fx-background-color: -red;
+}
+
+.window-header .close .mfx-font-icon {
+    -mfx-description: "fas-xmark";
+}
+
+.window-header .label {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 22px;
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+/******************** Tooltips ********************/
+.mfx-tooltip .content > .plain > .text {
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+}
+
+/******************** Components ********************/
+/* Scroll panes and Scroll bars */
+.virtual-scroll-pane {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 12px;
+    -fx-clip-border-radius: 24px;
+    -fx-padding: 6px;
+    -fx-layout-mode: COMPACT;
+    -fx-smooth-scroll: true;
+    -fx-track-smooth-scroll: true;
+    -fx-buttons-visible: true;
+}
+
+.virtual-scroll-pane:compact {
+    -fx-vbar-padding: 10px 7px 14px 0px;
+    -fx-hbar-padding: 0px 14px 7px 10px;
+}
+
+.mfx-scroll-bar {
+    -background: rgba(230, 230, 230, 1.0);
+    -border: rgba(223, 223, 223, 1.0);
+    -thumb: rgba(115, 115, 115, 1.0);
+    -thumb-hop: rgba(99, 99, 99, 1.0);
+
+    -fx-background-color: -md-sys-color-surface-container-highest;
+    -fx-background-radius: 5px;
+    -fx-padding: 1px 0px 1px 0px;
+}
+
+.mfx-scroll-bar .thumb {
+    -fx-background-color: -md-sys-color-primary;
+    -fx-background-radius: 7px;
+    -fx-pref-width: 7px;
+    -fx-pref-height: 7px;
+    -fx-opacity: 0.7;
+}
+
+.mfx-scroll-bar .thumb:hover,
+.mfx-scroll-bar .thumb:pressed {
+    -fx-opacity: 1.0;
+}
+
+.mfx-scroll-bar .mfx-icon-wrapper {
+    -fx-background-color: -md-sys-color-primary;
+    -fx-background-radius: 5px;
+    -mfx-size: 14px;
+    -fx-opacity: 0.7;
+}
+
+.mfx-scroll-bar .mfx-icon-wrapper:hover,
+.mfx-scroll-bar .mfx-icon-wrapper:pressed,
+.mfx-scroll-bar .mfx-icon-wrapper:focused {
+    -fx-opacity: 1.0;
+}
+
+.mfx-scroll-bar .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-color: -md-sys-color-on-primary;
+    -mfx-size: 13px;
+}
+
+.mfx-scroll-bar:vertical .decrement-icon .mfx-font-icon {
+    -mfx-description: "fas-caret-up";
+}
+
+.mfx-scroll-bar:vertical .increment-icon .mfx-font-icon {
+    -mfx-description: "fas-caret-down";
+}
+
+.mfx-scroll-bar:horizontal .decrement-icon .mfx-font-icon {
+    -mfx-description: "fas-caret-left";
+}
+
+.mfx-scroll-bar:horizontal .increment-icon .mfx-font-icon {
+    -mfx-description: "fas-caret-right";
+}
+
+/* Games Grid */
+.games-grid {
+    -fx-cell-size: "160 130";
+}
+
+.games-grid .game-cell {
+    -fx-padding: 12px
+}
+
+.games-grid .game-cell VBox {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 12px;
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 12px;
+    -fx-alignment: CENTER;
+    -fx-spacing: 12px;
+    -fx-cursor: HAND;
+}
+
+.games-grid .game-cell .label {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 12px;
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+.games-grid .game-cell VBox:hover {
+    -fx-background-color: -md-sys-color-surface-container-high;
+}
+
+.games-grid .game-cell:selected VBox {
+    -fx-background-color: -md-sys-color-primary-container;
+}
+
+/* Files Table */
+.files-table {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-column-size: "60 60";
+    -fx-cell-height: 48px;
+}
+
+.files-table .label {
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: -md-sys-color-on-surface;
+    -fx-font-weight: 500;
+    -fx-font-size: 12px;
+}
+
+.files-table .columns-container {
+    -fx-background-color: -md-sys-color-surface-container-highest;
+    -fx-background-radius: 12px;
+    -fx-background-insets: 0px 0px 10px 0px;
+}
+
+.files-table .table-column {
+    -fx-border-color: transparent;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-text-fill: -md-sys-color-on-surface;
+    -fx-font-size: 14px;
+    -fx-padding: 0px 0px 10px 0px;
+}
+
+.files-table .table-column:dragged,
+.files-table .table-column:hover {
+    -fx-padding: 10px 0px 10px 0px;
+    -fx-border-color: transparent -md-sys-color-outline-variant transparent transparent;
+    -fx-border-insets: 10px 5px 20px 0px;
+}
+
+.files-table .check-column {
+    -fx-pref-width: 48px;
+}
+
+.files-table .check-column:dragged,
+.files-table .check-column:hover {
+    -fx-padding: 10px 0px 10px 5px;
+}
+
+.files-table .check-cell {
+    -fx-alignment: CENTER;
+}
+
+.files-table .table-row:selected,
+.files-table .table-row:hover {
+    -fx-background-color: -md-sys-color-surface-variant;
+    -fx-background-radius: 6px;
+}
+
+.files-table .table-row:selected {
+    -fx-background-radius: 0px;
+}
+
+/* Floating Fields */
+.floating-field {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 12px;
+    -fx-empty-font-family: "Roboto";
+    -fx-empty-font-weight: 400;
+    -fx-empty-font-size: 16px;
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+.floating-field > .layout {
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 10px;
+    -fx-padding: 8px 12px 8px 12px;
+}
+
+.floating-field > .layout > .label {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 12px;
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+.floating-field:empty > .layout > .label {
+    -fx-font-size: 16px;
+}
+
+.floating-field:focus-within > .layout {
+    -fx-border-color: -md-sys-color-primary;
+    -fx-border-width: 2px;
+    -fx-border-insets: -1px;
+}
+
+.floating-field:focus-within > .layout > .label {
+    -fx-text-fill: -md-sys-color-primary;
+}
+
+/* Icon Buttons */
+.mfx-icon-button.filled,
+.mfx-icon-button.outlined {
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -mfx-size: 32px;
+}
+
+.mfx-icon-button.filled .surface .bg,
+.mfx-icon-button.outlined .surface .bg {
+    -fx-background-radius: 12px;
+}
+
+/* Image Wrappers */
+.img-wrapper .surface {
+    -mfx-hover-opacity: 24%;
+    -mfx-press-opacity: 30%;
+    -mfx-focus-opacity: 30%;
+}
+
+.img-wrapper .surface .bg {
+    -fx-background-color: white;
+}
+
+/* Actions Panes */
+.actions-pane {
+    -fx-padding: 12px;
+    -fx-spacing: 12px;
+    -fx-alignment: CENTER;
+}
+
+.actions-pane .actions {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 12px;
+    -fx-alignment: CENTER;
+    -fx-padding: 12px 0px 12px 0px;
+    -fx-spacing: 12px;
+}
+
+/******************** Dialogs ********************/
+/* Commons */
+.dialog-base {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 20px;
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 20px;
+    -fx-padding: 12px;
+}
+
+.dialog-base .window-header {
+    -fx-padding: 0px 0px 12px 0px;
+}
+
+.dialog-base.error .window-header .label,
+.dialog-base.warn .window-header .label,
+.dialog-base.info .window-header .label {
+    -fx-graphic-text-gap: 12px;
+}
+
+.dialog-base.error .window-header .mfx-font-icon,
+.dialog-base.warn .window-header .mfx-font-icon,
+.dialog-base.info .window-header .mfx-font-icon {
+    -mfx-size: 14px;
+}
+
+.dialog-base.warn .mfx-button .surface,
+.dialog-base.info .mfx-button .surface {
+    -mfx-hover-opacity: 12%;
+    -mfx-focus-opacity: 18%;
+    -mfx-press-opacity: 18%;
+}
+
+.dialog-base .label {
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+.dialog-base .actions-pane {
+    -fx-padding: 12px 0px 0px 0px;
+}
+
+/* Fatal and Error */
+.dialog-base.error .window-header .label .mfx-font-icon {
+    -mfx-color: -md-sys-color-error;
+}
+
+.dialog-base.error .window-header .close .mfx-font-icon {
+    -mfx-color: -md-sys-color-error;
+}
+
+.dialog-base.error .mfx-button {
+    -fx-text-fill: -md-sys-color-error;
+}
+
+.dialog-base.error .mfx-button .surface .bg {
+    -fx-background-color: -md-sys-color-error;
+}
+
+.dialog-base.error .mfx-button .surface .mfx-ripple-generator {
+    -mfx-ripple-color: rgba(186, 26, 26, 0.16);
+}
+
+/* Warn */
+.dialog-base.warn .window-header .label .mfx-font-icon {
+    -mfx-color: -orange;
+}
+
+.dialog-base.warn .mfx-button {
+    -fx-text-fill: derive(-orange, -5%);
+}
+
+.dialog-base.warn .mfx-button .surface .bg {
+    -fx-background-color: -orange;
+}
+
+.dialog-base.warn .mfx-button .surface .mfx-ripple-generator {
+    -mfx-ripple-color: rgba(255, 152, 0, 0.18);
+}
+
+/* Info */
+.dialog-base.info .window-header .label .mfx-font-icon {
+    -mfx-color: -blue;
+}
+
+.dialog-base.info .mfx-button {
+    -fx-text-fill: -blue;
+}
+
+.dialog-base.info .mfx-button .surface .bg {
+    -fx-background-color: -blue;
+}
+
+/* Games Dialog */
+.games-dialog {
+    -fx-min-width: 700px;
+    -fx-min-height: 500px;
+}
+
+.games-dialog .box {
+    -fx-spacing: 6px;
+}
+
+.games-dialog .pbox {
+    -fx-alignment: CENTER;
+    -fx-spacing: 12px;
+    -fx-padding: 12px;
+}
+
+/* Config Details Dialog */
+.config-details-dialog {
+    -fx-min-width: 800;
+    -fx-min-height: 600;
+}
+
+.config-details-dialog .files-table .label {
+    -fx-padding: 0px 0px 0px 12px;
+}
+
+/* Config Save Dialog */
+.field-dialog.config .box {
+    -fx-padding: 12px;
+    -fx-spacing: 12px;
+}
+
+/******************** Views ********************/
+/* Main View */
+.main-view {
+    -fx-background-color: -md-sys-color-surface-container-highest;
+    -fx-background-radius: 16px;
+    -fx-border-color: -md-sys-color-outline-variant;
+    -fx-border-radius: 16px;
+    -fx-padding: 0px 18px 0px 18px;
+}
+
+.main-view .img-wrapper:hover {
+    -fx-cursor: HAND;
+}
+
+.main-view .sidebar {
+    -fx-pref-width: 78px; /* Game Icon (48px) + padding (above 18px) + header spacing (12px) */
+    -fx-padding: 40px 0px 18px 0px;
+    -fx-spacing: 18px;
+}
+
+.main-view .sidebar .home .mfx-font-icon {
+    -mfx-description: "fas-house-chimney";
+}
+
+.main-view .sidebar .repo .mfx-font-icon {
+    -mfx-description: "fas-database";
+}
+
+.main-view .sidebar .settings .mfx-font-icon {
+    -mfx-description: "fas-gear";
+}
+
+.main-view .sidebar .info .mfx-font-icon {
+    -mfx-description: "fas-circle-info";
+}
+
+.main-view .sidebar .theme-switch .mfx-font-icon {
+    -mfx-description: "fas-sun";
+}
+
+.main-view .sidebar .theme-switch:dark .mfx-font-icon {
+    -mfx-description: "fas-moon";
+}
+
+.main-view .toast {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 400;
+    -fx-font-size: 12px;
+    -fx-text-fill: -md-sys-color-inverse-on-surface;
+    -fx-background-color: -md-sys-color-inverse-surface;
+    -fx-background-radius: 30px;
+    -fx-alignment: CENTER;
+    -fx-padding: 12px;
+    -fx-min-width: 200px;
+}
+
+/* Home View */
+.home-view .actions-pane .actions .autosize .mfx-font-icon {
+    -mfx-description: "fas-arrows-left-right";
+}
+
+.home-view .actions-pane .actions .refresh .mfx-font-icon {
+    -mfx-description: "fas-arrow-rotate-right";
+}
+
+.home-view .actions-pane .actions .save .mfx-font-icon {
+    -mfx-description: "fas-floppy-disk";
+}
+
+.home-view .actions-pane .actions .delete .mfx-font-icon {
+    -mfx-description: "fas-trash";
+    -mfx-size: 21px
+}
+
+/* Repo View */
+.repo-view .configs-list {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-cell-size: 64px;
+}
+
+.repo-view .configs-list .config-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px;
+}
+
+.repo-view .configs-list .config-cell:selected,
+.repo-view .configs-list .config-cell:hover {
+    -fx-background-color: -md-sys-color-surface-variant;
+    -fx-background-radius: 6px;
+}
+
+.repo-view .configs-list .config-cell:selected {
+    -fx-background-radius: 0px;
+}
+
+.repo-view .configs-list .config-cell .mfx-icon-button {
+    -mfx-size: 24px
+}
+
+.repo-view .configs-list .config-cell .mfx-icon-button .mfx-font-icon {
+    -mfx-description: "fas-square-up-right";
+    -mfx-size: 18px
+}
+
+.repo-view .actions-pane .actions .refresh .mfx-font-icon {
+    -mfx-description: "fas-arrow-rotate-right";
+}
+
+.repo-view .actions-pane .actions .load .mfx-font-icon {
+    -mfx-description: "fas-upload";
+}
+
+.repo-view .actions-pane .actions .delete .mfx-font-icon {
+    -mfx-description: "fas-trash";
+    -mfx-size: 21px
+}
+
+/* Settings View */
+.settings-view {
+    -fx-padding: 12px;
+}
+
+.settings-view > VBox {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px 6px 6px 24px;
+}
+
+.settings-view .label {
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+.settings-view .title {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 22px;
+}
+
+.settings-view .box {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px;
+    -fx-spacing: 12px;
+}
+
+.settings-view .box > .label {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+}
+
+.settings-view .box > FlowPane {
+    -fx-hgap: 12px;
+}
+
+.settings-view .box .theme-rect {
+    -fx-pref-width: 40px;
+    -fx-pref-height: 40px;
+}
+
+.settings-view .box .theme-rect .surface .bg {
+    -fx-background-color: white;
+}
+
+.settings-view .setting-component .reset-icon .mfx-font-icon {
+    -mfx-description: "fas-arrow-rotate-left";
+}
+
+.settings-view .setting-component.path .container {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 18px 12px 12px 12px;
+    -fx-spacing: 12px;
+}
+
+/* About View */
+.about-view {
+    -fx-padding: 12px;
+}
+
+.about-view .box {
+    -fx-padding: 12px 24px 12px 24px;
+}
+
+.markdown-text {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 16px;
+    -fx-fill: -md-sys-color-on-surface;
+    -fx-font-smoothing-type: LCD;
+}
+
+.markdown-normal-flow {
+    -fx-line-spacing: 5;
+}
+
+.markdown-heading-1,
+.markdown-heading-2,
+.markdown-heading-3,
+.markdown-heading-4,
+.markdown-heading-5 {
+    -fx-text-alignment: CENTER;
+    -fx-padding: 12px 0px 12px 0px;
+}
+
+.markdown-heading-1 .markdown-text {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 32px;
+}
+
+.markdown-heading-2 .markdown-text {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 24px;
+}
+
+.markdown-heading-3 .markdown-text {
+    -fx-font-family: "Roboto";
+    -fx-font-weight: 400;
+    -fx-font-size: 22px;
+}
+
+.markdown-link {
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: 300;
+    -fx-font-size: 16px;
+    -fx-stroke: -md-sys-color-on-surface;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+.markdown-link:hover,
+.markdown-link:focused {
+    -fx-stroke: -blue;
+}
+
+.markdown-normal-flow .markdown-bold {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 16px;
+}
+
+.markdown-hbox1 {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px 0px 12px 12px;
+}
+
+.markdown-listitem-dot {
+    -fx-text-fill: -md-sys-color-on-surface;
+}

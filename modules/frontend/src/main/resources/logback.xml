@@ -1,0 +1,22 @@
+<configuration>
+
+    <appender name="LogToConsole" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS}: %highlight(%-5level) [%thread] %logger - %msg%n%ex</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LogToFile" class="ch.qos.logback.core.FileAppender">
+        <file>${java.io.tmpdir}/enbmanager.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS}: %-5level [%thread] %logger - %msg%n%ex</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="LogToConsole"/>
+        <appender-ref ref="LogToFile"/>
+    </root>
+
+</configuration>
