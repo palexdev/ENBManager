@@ -1,3 +1,5 @@
+import java.nio.file.Files
+
 plugins {
     id 'java'
     id 'application'
@@ -76,8 +78,10 @@ gluonfx {
             '--initialize-at-build-time=ch.qos.logback',
             '--initialize-at-build-time=org.slf4j.LoggerFactory,ch.qos.logback',
     ]
-    runtimeArgs = []
+    runtimeArgs = ['-Dprism.order=sw']
     resourcesList = ['.*\\\\.zip$']
+    javafxStaticSdkVersion = "$jfx"
+    enableSwRendering = true
 }
 
 jlink {
@@ -86,18 +90,24 @@ jlink {
 
     // I develop on a exFAT external NVME, symbolic links are not supported
     String dir = System.getProperty("user.home") + "/.jlink/$rootProject.name"
+    if (areSymlinkSupported()) {
+        println "Supported"
+        dir = "$buildDir/image"
+    } else {
+        println "Not supported"
+    }
     imageDir.set(file(dir))
 
     // Platforms
     targetPlatform("linux_x64-$version") {
-        jdkHome = providers.gradleProperty("JDK_LINUX_x64")
+        jdkHome = providers.gradleProperty("JDK17_LINUX_x64")
                 .getOrElse(jdkDownload("https://cdn.azul.com/zulu/bin/zulu17.42.21-ca-crac-jdk17.0.7-linux_x64.tar.gz"))
         addExtraModulePath(providers.gradleProperty("JFX_LINUX_JMODS").getOrElse(""))
         imageZip.set(file(dir + "/enbmanager"))
     }
 
     targetPlatform("windows_x64-$version") {
-        jdkHome = providers.gradleProperty("JDK_WINDOWS_x64")
+        jdkHome = providers.gradleProperty("JDK17_WINDOWS_x64")
                 .getOrElse(jdkDownload("https://cdn.azul.com/zulu/bin/zulu17.42.19-ca-jdk17.0.7-win_x64.zip"))
         addExtraModulePath(providers.gradleProperty("JFX_WINDOWS_JMODS").getOrElse(""))
         imageZip.set(file(dir + "/enbmanager"))
@@ -107,6 +117,26 @@ jlink {
     launcher {
         noConsole = true
     }
+
     forceMerge("slf4j")
+    forceMerge("logback")
     addExtraDependencies("javafx")
+
+    mergedModule {
+        uses "ch.qos.logback.classic.spi.Configurator"
+
+        excludeProvides service: "jakarta.servlet.ServletContainerInitializer"
+    }
+}
+
+boolean areSymlinkSupported() {
+    File dummy = file("$projectDir/.dummy")
+    java.nio.file.Path dummy_link = java.nio.file.Path.of("$projectDir/.dummy_link")
+    try {
+        Files.createSymbolicLink(dummy_link, dummy.toPath())
+        Files.delete(dummy_link)
+        return true;
+    } catch (Exception ignored) {
+        return false;
+    }
 }

@@ -1,0 +1,42 @@
+name: Windows
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Visual Studio Shell
+        uses: ralfkonrad/vs-shell@remove_windows-2016
+
+      - name: Setup Gluon's GraalVM
+        uses: gluonhq/setup-graalvm@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build Native Image
+        run: .\gradlew nativeBuild
+
+      - name: JLink Build
+        run: ./gradlew jlinkZip
+
+      - name: Rename artifact
+        run: mv modules/frontend/build/gluonfx/x86_64-windows/frontend.exe modules/frontend/build/gluonfx/x86_64-windows/ENBManager.exe
+
+      - name: Release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          files: |
+            modules/frontend/build/gluonfx/x86_64-windows/ENBManager.exe
+            modules/frontend/build/image/enbmanager-windows*.zip
