@@ -1,4 +1,7 @@
 import java.nio.file.Files
+import java.nio.file.StandardOpenOption
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 plugins {
     id 'java'
@@ -123,6 +126,15 @@ jlink {
     }
 }
 
+tasks.register("GenerateNexusRelease") {
+    dependsOn build
+    String link = "https://github.com/palexdev/ENBManager/releases/tag/v$app"
+    java.nio.file.Path dir = java.nio.file.Path.of("$buildDir/nexus")
+    if (!Files.isDirectory(dir)) Files.createDirectories(dir)
+    java.nio.file.Path txt = Files.writeString(dir.resolve("Release.txt"), link, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)
+    zipFile(txt, "$buildDir/nexus/Release-v$app" + ".zip")
+}
+
 boolean areSymlinksSupported() {
     File dummy = file("$projectDir/.dummy")
     java.nio.file.Path dummy_link = java.nio.file.Path.of("$projectDir/.dummy_link")
@@ -132,5 +144,27 @@ boolean areSymlinksSupported() {
         return true;
     } catch (Exception ignored) {
         return false;
+    }
+}
+
+void zipFile(java.nio.file.Path source, String zipFileName) throws IOException {
+    if (!Files.isRegularFile(source)) {
+        System.err.println("Please provide a file.")
+        return
+    }
+
+    try (
+            ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFileName))
+            FileInputStream fis = new FileInputStream(source.toFile())
+    ) {
+        ZipEntry zipEntry = new ZipEntry(source.getFileName().toString());
+        zos.putNextEntry(zipEntry);
+
+        byte[] buffer = new byte[1024];
+        int len;
+        while ((len = fis.read(buffer)) > 0) {
+            zos.write(buffer, 0, len);
+        }
+        zos.closeEntry();
     }
 }
