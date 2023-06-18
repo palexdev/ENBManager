@@ -89,13 +89,7 @@ jlink {
     moduleName = "ENBManager.frontend"
 
     // I develop on a exFAT external NVME, symbolic links are not supported
-    String dir = System.getProperty("user.home") + "/.jlink/$rootProject.name"
-    if (areSymlinkSupported()) {
-        println "Supported"
-        dir = "$buildDir/image"
-    } else {
-        println "Not supported"
-    }
+    String dir = areSymlinksSupported() ? "$buildDir/image" : System.getProperty("user.home") + "/.jlink/$rootProject.name"
     imageDir.set(file(dir))
 
     // Platforms
@@ -129,7 +123,7 @@ jlink {
     }
 }
 
-boolean areSymlinkSupported() {
+boolean areSymlinksSupported() {
     File dummy = file("$projectDir/.dummy")
     java.nio.file.Path dummy_link = java.nio.file.Path.of("$projectDir/.dummy_link")
     try {

@@ -342,7 +342,7 @@ public class ENBManager extends Application {
         //================================================================================
         // Properties
         //================================================================================
-        private final String appVer = "17.0.1";
+        private final String appVer = "17.0.2";
         private final String invernoVer = "1.5.1";
 
         private final String header = "\n" +

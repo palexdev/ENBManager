@@ -35,8 +35,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static io.github.palexdev.enbmanager.frontend.ENBManager.LOGGER;
+import static java.nio.file.StandardOpenOption.APPEND;
 import static java.nio.file.StandardOpenOption.CREATE;
-import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 
 public class ENBManagerModel {
     //================================================================================
@@ -257,12 +257,15 @@ public class ENBManagerModel {
                     "uninstall.exe", "_weatherlist.ini", "aaa.ini", "bbb.ini",
                     "other_d3d9.dll"
                 );
+                try {
+                    Files.deleteIfExists(file);
+                } catch (Exception ignored) {
+                }
                 files.forEach(s -> {
                     try {
-                        Files.writeString(file, s + "\n", CREATE, TRUNCATE_EXISTING);
+                        Files.writeString(file, s + "\n", CREATE, APPEND);
                     } catch (IOException iex) {
                         LOGGER.error("Failed to write config files to .txt because: ", iex);
-                    } finally {
                         try {Files.deleteIfExists(file);} catch (Exception ignored) {}
                     }
                 });

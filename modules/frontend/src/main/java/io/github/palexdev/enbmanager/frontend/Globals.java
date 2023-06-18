@@ -60,26 +60,26 @@ public class Globals {
             "%sc) On Linux: ~/.config/ENBManager\n".formatted(spaces(8));
     public static String TOOLS =
         "# Tools\n" +
-            "The realization of ENBManager was possible thanks to these great tools and libraries:\n" +
-            "- [JavaFX](https://github.com/openjdk/jfx)\n" +
-            "- [MaterialFX](https://github.com/palexdev/MaterialFX)\n" +
-            "- [MFXComponents](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
-            "- [MFXCore](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
-            "- [MFXEffects](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
-            "- [MFXResources](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
-            "- [VirtualizedFX](https://github.com/palexdev/VirtualizedFX)\n" +
-            "- [markdown-javafx-renderer](https://github.com/JPro-one/markdown-javafx-renderer)\n" +
-            "- [CSSFX](https://github.com/McFoggy/cssfx)\n" +
-            "- [ScenivView](https://github.com/JonathanGiles/scenic-view)\n" +
-            "- [Inverno](https://inverno.io)\n" +
-            "- [DirectoryWatcher](https://github.com/gmethvin/directory-watcher)\n" +
-            "- [IntelliJ_Idea](https://www.jetbrains.com/idea/)\n";
+                "The realization of ENBManager was possible thanks to these great tools and libraries:\n" +
+                "- [JavaFX](https://github.com/openjdk/jfx)\n" +
+                "- [MaterialFX](https://github.com/palexdev/MaterialFX)\n" +
+                "- [MFXComponents](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
+                "- [MFXCore](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
+                "- [MFXEffects](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
+                "- [MFXResources](https://github.com/palexdev/MaterialFX/tree/rewrite)\n" +
+                "- [VirtualizedFX](https://github.com/palexdev/VirtualizedFX)\n" +
+                "- [markdown-javafx-renderer](https://github.com/JPro-one/markdown-javafx-renderer)\n" +
+                "- [CSSFX](https://github.com/McFoggy/cssfx)\n" +
+                "- [ScenicView](https://github.com/JonathanGiles/scenic-view)\n" +
+                "- [Inverno](https://inverno.io)\n" +
+                "- [DirectoryWatcher](https://github.com/gmethvin/directory-watcher)\n" +
+                "- [IntelliJ_Idea](https://www.jetbrains.com/idea/)\n";
     public static String SUPPORT =
-        "# Support\n" +
-            "You can support this project in various ways:\n" +
-            "1) You can endorse it on the [Nexus](https://www.nexusmods.com/)\n" +
-            "2) You can drop by on [GitHub](https://github.com/palexdev/ENBManager/discussions) to say hello\n" +
-            "3) If you feel like it, you can pay me a coffee here [PayPal](https://www.paypal.com/paypalme/alxpar404/2)";
+            "# Support\n" +
+                    "You can support this project in various ways:\n" +
+                    "1) You can endorse it on the [Nexus](https://www.nexusmods.com/skyrimspecialedition/mods/93764)\n" +
+                    "2) You can drop by on [GitHub](https://github.com/palexdev/ENBManager/discussions) to say hello\n" +
+                    "3) If you feel like it, you can pay me a coffee here [PayPal](https://www.paypal.com/paypalme/alxpar404/2)";
 
 
     // TODO update on release
